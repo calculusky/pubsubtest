@@ -13,7 +13,12 @@ app.get('/', function (req, res) {
 })
 
 app.post('/', function (req, res) {
-  console.log(req.body, '******************** res body *******')
+  const { events } = req.body;
+  for (let e of events) {
+    console.log(e.data, '________ data ________')
+  }
+  console.log(req.body, '******************** req body *******')
+
   res.send('Hello World Post!')
 })
 
