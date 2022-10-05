@@ -1,7 +1,11 @@
 var express = require('express')
-var app = express();
+const cors = require('cors')
+const app = express();
 
+
+app.use(cors())
 app.use(express.json());
+
 
 app.get('/', function (req, res) {
   console.log()
@@ -13,6 +17,7 @@ app.post('/', function (req, res) {
   res.send('Hello World Post!')
 })
 
-app.listen(3000, function () {
-  console.log('Listening on port 3000...')
+const port = process.env.PORT || 3000;
+app.listen(port, function () {
+  console.log(`Listening on port ${port}...`)
 })
